@@ -1,13 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
-<c:import url="header.jsp" />
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Criar Filme</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
 <body>
     <!-- Barra superior com os menus de navegação -->
 	<c:import url="Menu.jsp"/>
     <!-- Container Principal -->
-    <div id="main" class="container mt-4">
+    <div id="main" class="container">
         <h3 class="page-header">Incluir Filme</h3>
         <!-- Formulario para inclusao de clientes -->
         <form action="inserir_filme" method="post">
@@ -23,6 +34,7 @@
                 </div>
                 <div class="form-group col-md-8">
                     <label for="titulo">Título</label>
+                    <form:errors path="filme.titulo" cssStyle="color:red"/>
                     <input type="text" class="form-control" name="titulo" id="titulo" required maxlength="100" placeholder="nome do filme">
                 </div>
             </div>
@@ -57,9 +69,13 @@
             <div id="actions" class="row">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary" name="acao" value="criar">Salvar</button>
-                    <a href="index.jsp" class="btn btn-default">Cancelar</a>
+                    <a href="inicio" class="btn btn-default">Cancelar</a>
                 </div>
             </div>
         </form>
     </div>
-    <c:import url="footer.jsp" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
